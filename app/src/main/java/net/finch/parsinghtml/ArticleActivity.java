@@ -6,6 +6,8 @@ import android.webkit.*;
 import java.util.concurrent.*;
 import android.widget.*;
 import android.support.v7.app.*;
+import android.support.design.widget.*;
+import android.support.v7.widget.Toolbar;
 
 public class ArticleActivity extends AppCompatActivity
 {
@@ -20,6 +22,13 @@ public class ArticleActivity extends AppCompatActivity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.arcticle);
+		
+		CollapsingToolbarLayout collapsingToolbarLayout =
+			(CollapsingToolbarLayout) findViewById(R.id.collapsing);
+		collapsingToolbarLayout.setTitle(getString(R.string.app_name));
+		
+		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
+		setSupportActionBar(toolbar);
 		
 		webView=(WebView)findViewById(R.id.webView);
 		url=getIntent().getStringExtra("link");

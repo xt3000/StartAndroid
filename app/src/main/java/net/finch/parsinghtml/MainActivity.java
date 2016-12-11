@@ -1,24 +1,19 @@
 package net.finch.parsinghtml;
 
 
-import org.jsoup.nodes.Document;
+import android.content.*;
+import android.os.*;
+import android.support.design.widget.*;
+import android.support.v7.app.*;
+import android.support.v7.widget.*;
+import android.view.*;
+import android.webkit.*;
+import android.widget.*;
+import android.widget.AdapterView.*;
+import java.util.concurrent.*;
+import org.jsoup.nodes.*;
 
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.content.Intent;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.webkit.WebView;
-import android.widget.ArrayAdapter;
 import android.support.v7.widget.Toolbar;
-import java.util.concurrent.ExecutionException;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView;
-import android.view.View;
-import android.os.Bundle;
-import java.util.Map;
-import android.widget.SimpleAdapter;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -48,11 +43,11 @@ public class MainActivity extends AppCompatActivity
 		setSupportActionBar(toolbar);
 		//test
 		
-		TabLayout tabLayout = (TabLayout)findViewById(R.id.TabLayout);
+		/*TabLayout tabLayout = (TabLayout)findViewById(R.id.TabLayout);
 			tabLayout.addTab(tabLayout.newTab().setText("Все уроки"), true);
 			tabLayout.addTab(tabLayout.newTab().setText("История"));
 			tabLayout.addTab(tabLayout.newTab().setText("Избранное"));
-		//////
+		*///////
 		intent=new Intent(this, ArticleActivity.class);
 		
 		tvItem=(TextView)findViewById(R.id.tvTitle);
