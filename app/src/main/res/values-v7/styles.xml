@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<resources>
+		
+		<!-- стиль для заднего фона -->
+		<style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+			<item name="android:background">#0077ff</item>
+			<item name="android:titleTextStyle">@style/MyTextAppearance</item>
+		</style>
+		<!-- стиль для текста -->
+		<style name="MyTextAppearance" parent="@android:style/TextAppearance">
+			<item name="android:textColor">#ffffff</item>
+		</style>
+		<style name="appTheme" parent="@android:style/Theme.Material">	
+		</style>
+		
+	</resources>

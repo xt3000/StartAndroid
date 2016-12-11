@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<style name="myTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="colorPrimary">@color/lightBlue</item>
+		<item name="colorPrimaryDark">@color/lightBlue</item>
+		<item name="android:windowBackground">@color/white</item>
+		<item name="android:textColorPrimary">@color/white</item>
+		<item name="android:windowFullscreen">false</item>
+		
+	</style>
+	
+	<style name="MyTabStyle" parent="@android:style/TextAppearance.Holo.Widget.TabWidget">
+		<item name="android:textColor">#E02222</item>
+		<item name="android:background">@color/lightBlue</item>
+		<item name="showDividers">none</item>
+		
+	</style>
+	
+</resources>
