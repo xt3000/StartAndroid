@@ -43,11 +43,12 @@ public class MainActivity extends AppCompatActivity
 		setSupportActionBar(toolbar);
 		//test
 		
-		/*TabLayout tabLayout = (TabLayout)findViewById(R.id.TabLayout);
+		TabLayout tabLayout = (TabLayout)findViewById(R.id.TabLayout);
+		tabLayout.setBackgroundResource(R.color.primary);
 			tabLayout.addTab(tabLayout.newTab().setText("Все уроки"), true);
 			tabLayout.addTab(tabLayout.newTab().setText("История"));
 			tabLayout.addTab(tabLayout.newTab().setText("Избранное"));
-		*///////
+		///////
 		intent=new Intent(this, ArticleActivity.class);
 		
 		tvItem=(TextView)findViewById(R.id.tvTitle);

@@ -12,7 +12,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:textSize="20sp"
-		android:textColor="#0093FB">
+		android:textColor="@color/primary_text">
 
 	</TextView>
 
@@ -21,7 +21,7 @@
 		android:layout_width="wrap_content"
 		android:text="data"
 		android:id="@+id/tvData"
-		android:textColor="#DBDBDB"
+		android:textColor="@color/secondary_text"
 		android:layout_marginTop="10dp"/>
 
 </LinearLayout>
