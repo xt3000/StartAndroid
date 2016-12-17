@@ -14,13 +14,13 @@ import java.util.concurrent.*;
 import org.jsoup.nodes.*;
 
 import android.support.v7.widget.Toolbar;
+import android.support.v4.view.*;
 
 public class MainActivity extends AppCompatActivity
 {
 	Intent intent;
 	
 	ListView ListView;
-	TextView tvItem;
 	WebView webView;
 	parsAticle pAticle;
 	
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity
 	ItemObj itemObj;
 	
 	//test;
-	
+	ViewPager viewPager;
+	TabLayout tabLayout;
 	//
 	
     @Override
@@ -42,23 +43,9 @@ public class MainActivity extends AppCompatActivity
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		//test
-		
-		TabLayout tabLayout = (TabLayout)findViewById(R.id.TabLayout);
-		tabLayout.setBackgroundResource(R.color.primary);
-			tabLayout.addTab(tabLayout.newTab().setText("Все уроки"), true);
-			tabLayout.addTab(tabLayout.newTab().setText("История"));
-			tabLayout.addTab(tabLayout.newTab().setText("Избранное"));
-		///////
-		intent=new Intent(this, ArticleActivity.class);
-		
-		tvItem=(TextView)findViewById(R.id.tvTitle);
-		ListView =(ListView)findViewById(R.id.listView);
-		webView=(WebView)findViewById(R.id.webView);
-		
-		
-		
 		parser =new Parser();
 		parser.execute();
+		itemObj=null;
 		try
 		{
 			itemObj = parser.get();
@@ -67,35 +54,22 @@ public class MainActivity extends AppCompatActivity
 		{}
 		catch (InterruptedException e)
 		{}
+		if (itemObj==null)
+		{
+			Toast.makeText(this, "ошибка", Toast.LENGTH_LONG).show();
+		}
+		else Toast.makeText(this, "parsing завершен", Toast.LENGTH_SHORT).show();
 		
-		String[] from = {"title", "date"};
-		int[] to = {R.id.tvTitle, R.id.tvData};
-			
-		SimpleAdapter adapter = new SimpleAdapter(this, itemObj.aTitle, R.layout.item, from, to);
-		ListView.setAdapter(adapter);
-		ListView.setOnItemClickListener(new OnItemClickListener(){
-
-				@Override
-				public void onItemClick(AdapterView<?> aView, View view, int pos, long id)
-				{
-					switch (view.getId())
-					{
-						case R.id.llItem:
-						{
-							itemObj.History(pos);
-							String url=itemObj.aLink.get(pos);
-							intent.putExtra("link", url);
-							startActivity(intent);
-							break;	
-						}
-						default:break;
-					}
-					
-					
-				}
-				
-			
-		});
+		//itemObj.History(0);
+		
+		viewPager = (ViewPager) findViewById(R.id.viewPager);
+		setupViewPager(viewPager);
+		
+		tabLayout = (TabLayout)findViewById(R.id.TabLayout);
+		tabLayout.setBackgroundResource(R.color.primary);
+		tabLayout.setupWithViewPager(viewPager);
+		///////
+		
 		
 		
 
@@ -103,6 +77,14 @@ public class MainActivity extends AppCompatActivity
 	
 	
 	//test
+	public void setupViewPager(ViewPager viewPager)
+	{
+		ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
+		adapter.addFragment(new FullFrag(itemObj.aTitle, itemObj.aLink, itemObj), "Все  уроки");
+		adapter.addFragment(new FullFrag(itemObj.aHistoryTitle, itemObj.aHistoryLink, itemObj), "История");
+		adapter.addFragment(new FavoriteFrag(), "Избранное");
+		viewPager.setAdapter(adapter);
+	}
 	
-	//
+	
 }

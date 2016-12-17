@@ -29,6 +29,7 @@ public class ArticleActivity extends AppCompatActivity
 		
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		webView=(WebView)findViewById(R.id.webView);
 		url=getIntent().getStringExtra("link");
