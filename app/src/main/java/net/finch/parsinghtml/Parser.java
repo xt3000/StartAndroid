@@ -33,9 +33,11 @@ public class Parser extends AsyncTask<Void,Void,ItemObj>
 				mapTitle=new HashMap<>();
 				mapTitle.put("title", elem.text());
 				mapTitle.put("date", edates.get(i).text());
-				i++;
+				mapTitle.put("link", elem.select("a[href]").first().attr("abs:href"));
+				mapTitle.put("id", i);
+				
 				arrayTitle.add(mapTitle);
-				arrayLink.add(elem.select("a[href]").first().attr("abs:href"));
+				i++;
 			}
 		
 		} catch (IOException e) 
@@ -45,7 +47,7 @@ public class Parser extends AsyncTask<Void,Void,ItemObj>
 			
 		
 		
-		ItemObj item = new ItemObj(arrayTitle, arrayLink);
+		ItemObj item = new ItemObj(arrayTitle);
 			
 		return item;
 	}

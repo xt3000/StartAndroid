@@ -1,30 +1,23 @@
 package net.finch.parsinghtml;
 
-
-import android.content.*;
-import android.os.*;
-import android.support.design.widget.*;
-import android.support.v7.app.*;
-import android.support.v7.widget.*;
-import android.view.*;
-import android.webkit.*;
-import android.widget.*;
-import android.widget.AdapterView.*;
-import java.util.concurrent.*;
-import org.jsoup.nodes.*;
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebView;
+import android.widget.ListView;
+import android.widget.Toast;
+import java.util.concurrent.ExecutionException;
 
 import android.support.v7.widget.Toolbar;
-import android.support.v4.view.*;
+import android.support.v4.view.ViewPager;
 
 public class MainActivity extends AppCompatActivity
 {
-	Intent intent;
 	
 	ListView ListView;
 	WebView webView;
 	parsAticle pAticle;
 	
-	Document doc;
 	Parser parser;
 	
 	ItemObj itemObj;
@@ -55,12 +48,8 @@ public class MainActivity extends AppCompatActivity
 		catch (InterruptedException e)
 		{}
 		if (itemObj==null)
-		{
 			Toast.makeText(this, "ошибка", Toast.LENGTH_LONG).show();
-		}
 		else Toast.makeText(this, "parsing завершен", Toast.LENGTH_SHORT).show();
-		
-		//itemObj.History(0);
 		
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
 		setupViewPager(viewPager);
@@ -80,8 +69,8 @@ public class MainActivity extends AppCompatActivity
 	public void setupViewPager(ViewPager viewPager)
 	{
 		ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
-		adapter.addFragment(new FullFrag(itemObj.aTitle, itemObj.aLink, itemObj), "Все  уроки");
-		adapter.addFragment(new FullFrag(itemObj.aHistoryTitle, itemObj.aHistoryLink, itemObj), "История");
+		adapter.addFragment(new FullFrag(itemObj.aTitle, itemObj), "Все  уроки");
+		adapter.addFragment(new FullFrag(itemObj.aHistoryTitle, itemObj), "История");
 		adapter.addFragment(new FavoriteFrag(), "Избранное");
 		viewPager.setAdapter(adapter);
 	}

@@ -1,25 +1,20 @@
 package net.finch.parsinghtml;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class ItemObj
 {
 	ArrayList<Map<String,Object>> aTitle;
-	ArrayList<String> aLink;
-	
 	ArrayList<Map<String,Object>> aHistoryTitle=null;
-	ArrayList<String> aHistoryLink;
 	
-	ItemObj(ArrayList<Map<String,Object>> title, ArrayList<String> link)
+	ItemObj(ArrayList<Map<String,Object>> title)
 	{
 		this.aTitle=title;
-		this.aLink=link;
 		aHistoryTitle=new ArrayList<>();
-		aHistoryLink=new ArrayList<>();
 	}
 	
-	public void History(int pos)
+	public void History(int id)
 	{
-		aHistoryTitle.add(aTitle.get(pos));
-		aHistoryLink.add(aLink.get(pos));
+		aHistoryTitle.add(aTitle.get(id));
 	}
 }

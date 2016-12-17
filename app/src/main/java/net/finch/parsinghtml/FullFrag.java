@@ -12,6 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.Map;
+import android.widget.*;
 
 public class FullFrag extends Fragment
 {
@@ -23,12 +24,10 @@ public class FullFrag extends Fragment
 	ListView listView;
 	ItemObj itemObj;
 	ArrayList<Map<String,Object>> aTitle;
-	ArrayList<String> aLink;
 	
-	FullFrag(ArrayList<Map<String,Object>> aTitle, ArrayList<String> aLink, ItemObj itemObj)
+	FullFrag(ArrayList<Map<String,Object>> aTitle, ItemObj itemObj)
 	{
 		this.aTitle=aTitle;
-		this.aLink=aLink;
 		this.itemObj=itemObj;
 	}
 
@@ -57,12 +56,14 @@ public class FullFrag extends Fragment
 				@Override
 				public void onItemClick(AdapterView<?> aView, View view, int pos, long id)
 				{
+					int id_item = aTitle.get(pos).get("id");
+					Toast.makeText(getActivity(), "id="+id_item, Toast.LENGTH_SHORT).show();
 					switch (view.getId())
 					{
 						case R.id.llItem:
 							{
-								itemObj.History(pos);
-								String url=aLink.get(pos);
+								itemObj.History(id_item);
+								String url=itemObj.aTitle.get(id_item).get("link").toString();
 								intent.putExtra("link", url);
 								startActivity(intent);
 								break;	

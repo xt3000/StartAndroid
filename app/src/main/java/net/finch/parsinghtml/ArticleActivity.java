@@ -1,13 +1,12 @@
 package net.finch.parsinghtml;
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.webkit.*;
-import java.util.concurrent.*;
-import android.widget.*;
-import android.support.v7.app.*;
-import android.support.design.widget.*;
+
+import android.os.Bundle;
+import android.webkit.WebView;
+import java.util.concurrent.ExecutionException;
+import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
+import android.webkit.WebSettings;
 
 public class ArticleActivity extends AppCompatActivity
 {
