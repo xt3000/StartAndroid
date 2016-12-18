@@ -24,11 +24,13 @@ public class ArticleActivity extends AppCompatActivity
 		
 		CollapsingToolbarLayout collapsingToolbarLayout =
 			(CollapsingToolbarLayout) findViewById(R.id.collapsing);
-		collapsingToolbarLayout.setTitle(getString(R.string.app_name));
+		collapsingToolbarLayout.setTitle(getString(R.string.article_name));
 		
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		
 		
 		webView=(WebView)findViewById(R.id.webView);
 		url=getIntent().getStringExtra("link");

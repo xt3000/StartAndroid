@@ -18,7 +18,6 @@ public class Parser extends AsyncTask<Void,Void,ItemObj>
 	{
 		ArrayList<Map<String,Object>> arrayTitle=new ArrayList<Map<String, Object>>();
 		Map<String,Object> mapTitle = new HashMap<String, Object>();
-		ArrayList<String> arrayLink = new ArrayList<String>();
 		Document doc=null;
 		
 		try

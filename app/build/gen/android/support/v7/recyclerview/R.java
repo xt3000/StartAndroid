@@ -2332,7 +2332,7 @@ containing a value of this type.
         public static final int user_avatar=0x7f020052;
     }
     public static final class id {
-        public static final int TabLayout=0x7f06007a;
+        public static final int TabLayout=0x7f06007b;
         public static final int action0=0x7f06007c;
         public static final int action_bar=0x7f06005a;
         public static final int action_bar_activity_content=0x7f060001;
@@ -2456,7 +2456,7 @@ containing a value of this type.
         public static final int time=0x7f060082;
         public static final int title=0x7f060043;
         public static final int title_template=0x7f060048;
-        public static final int toolbar=0x7f060079;
+        public static final int toolbar=0x7f06007a;
         public static final int toolbar2=0x7f06006c;
         public static final int top=0x7f060032;
         public static final int topPanel=0x7f060047;
@@ -2464,7 +2464,7 @@ containing a value of this type.
         public static final int tvTitle=0x7f060077;
         public static final int up=0x7f060009;
         public static final int useLogo=0x7f060014;
-        public static final int viewPager=0x7f06007b;
+        public static final int viewPager=0x7f060079;
         public static final int view_offset_helper=0x7f06000a;
         public static final int webView=0x7f06006d;
         public static final int withText=0x7f060021;
@@ -2557,7 +2557,6 @@ containing a value of this type.
         public static final int appbar_scrolling_view_behavior=0x7f070014;
         public static final int article_name=0x7f070017;
         public static final int character_counter_pattern=0x7f070015;
-        public static final int hello_world=0x7f070018;
         public static final int status_bar_notification_info_overflow=0x7f070013;
     }
     public static final class style {

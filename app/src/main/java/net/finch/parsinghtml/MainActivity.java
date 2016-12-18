@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity
 		{}
 		if (itemObj==null)
 			Toast.makeText(this, "ошибка", Toast.LENGTH_LONG).show();
-		else Toast.makeText(this, "parsing завершен", Toast.LENGTH_SHORT).show();
+		else if (itemObj.aTitle.size()==0) Toast.makeText(this, "Проверьте родключение к интернету", Toast.LENGTH_LONG).show();
+		else Toast.makeText(this, "parsing завершен. ", Toast.LENGTH_SHORT).show();
 		
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
 		setupViewPager(viewPager);
@@ -57,10 +58,7 @@ public class MainActivity extends AppCompatActivity
 		tabLayout = (TabLayout)findViewById(R.id.TabLayout);
 		tabLayout.setBackgroundResource(R.color.primary);
 		tabLayout.setupWithViewPager(viewPager);
-		///////
-		
-		
-		
+		///////	
 
     }
 	
@@ -69,8 +67,8 @@ public class MainActivity extends AppCompatActivity
 	public void setupViewPager(ViewPager viewPager)
 	{
 		ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
-		adapter.addFragment(new FullFrag(itemObj.aTitle, itemObj), "Все  уроки");
-		adapter.addFragment(new FullFrag(itemObj.aHistoryTitle, itemObj), "История");
+		adapter.addFragment(new FullFrag(itemObj, 1), "Все  уроки");
+		adapter.addFragment(new FullFrag(itemObj, 2), "История");
 		adapter.addFragment(new FavoriteFrag(), "Избранное");
 		viewPager.setAdapter(adapter);
 	}

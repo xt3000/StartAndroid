@@ -12,7 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.Map;
-import android.widget.*;
+import android.widget.Toast;
 
 public class FullFrag extends Fragment
 {
@@ -24,17 +24,19 @@ public class FullFrag extends Fragment
 	ListView listView;
 	ItemObj itemObj;
 	ArrayList<Map<String,Object>> aTitle;
+	int n;
 	
-	FullFrag(ArrayList<Map<String,Object>> aTitle, ItemObj itemObj)
+	FullFrag (ItemObj itemObj, int n)
 	{
-		this.aTitle=aTitle;
 		this.itemObj=itemObj;
+		if (n==2) this.aTitle=this.itemObj.aHistoryTitle;
+		else this.aTitle=this.itemObj.aTitle;
+		
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
-		
 		
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
